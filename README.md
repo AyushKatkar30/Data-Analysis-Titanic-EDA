@@ -1,60 +1,29 @@
-# 🚢 Titanic Dataset - Exploratory Data Analysis (EDA)
+## Summary of Analysis
 
-## 📊 Objective
-To explore and analyze the Titanic dataset to uncover hidden patterns, relationships, and insights about survival using **Python (Pandas, Matplotlib, Seaborn)**.
+This project involved a thorough Exploratory Data Analysis (EDA) of the Titanic dataset with the following steps:
 
----
+1. **Data Inspection and Cleaning**  
+   - Examined dataset structure and missing values.  
+   - Dropped `Cabin` column due to too many missing entries.  
+   - Imputed missing `Age` values with the median age.  
+   - Filled missing `Embarked` values with the mode (most frequent value).  
+   - Encoded categorical variables (`Sex` and `Embarked`) into numeric values.
 
-## 📁 Dataset Overview
-The dataset used is the classic [Titanic Dataset](https://www.kaggle.com/c/titanic/data), which contains demographic and travel information for passengers aboard the Titanic.
+2. **Exploratory Data Analysis**  
+   - Conducted univariate analysis to understand individual feature distributions.  
+   - Performed bivariate analysis to study relationships between features and survival.  
+   - Created correlation heatmaps and pairplots to explore feature interactions.
 
-### 🧾 Initial Dataset Info:
-- Total Rows: **891**
-- Columns: **12**
-- Missing Values:
-  - `Age`: 177 missing
-  - `Cabin`: 687 missing
-  - `Embarked`: 2 missing
+3. **Key Findings**  
+   - Female passengers had a significantly higher survival rate.  
+   - First-class passengers had better survival odds compared to lower classes.  
+   - Younger passengers, particularly children, were more likely to survive.  
+   - Higher fare was positively correlated with survival, reflecting socio-economic factors.  
+   - Due to missing data, `Cabin` was excluded from analysis.
 
----
+4. **Deliverables**  
+   - Cleaned dataset saved as `titanic_cleaned.csv`.  
+   - Jupyter Notebook containing all analysis steps and visualizations.  
+   - A summary report documenting insights and conclusions.
 
-## 🛠️ Data Cleaning
-- Dropped `Cabin` column due to excessive missing values.
-- Filled missing values:
-  - `Age` with median
-  - `Embarked` with mode
-- Converted categorical columns (`Sex`, `Embarked`) into numerical format using label encoding.
-- ✅ Saved the cleaned dataset as `titanic_cleaned.csv`
-
----
-
-## 🔍 Exploratory Data Analysis (EDA)
-
-### 📌 Univariate Analysis
-
-| Feature    | Chart Used         | Insight |
-|------------|--------------------|---------|
-| Survived   | `countplot`        | ~60% died, ~40% survived |
-| Sex        | `countplot`        | More males than females |
-| Pclass     | `countplot`        | Most passengers in 3rd class |
-| Age        | `histplot`         | Skewed toward younger adults |
-| Fare       | `boxplot`          | Wide fare range with outliers |
-
----
-
-### 📌 Bivariate Analysis
-
-| Analysis           | Chart Used                  | Observation |
-|--------------------|-----------------------------|-------------|
-| Survival vs Gender | `countplot(hue='Sex')`      | Females had higher survival |
-| Survival vs Pclass | `countplot(hue='Pclass')`   | 1st class survived more |
-| Age vs Survival    | `boxplot(x='Survived', y='Age')` | Younger passengers had better chances |
-| Fare vs Pclass     | `boxplot(x='Pclass', y='Fare')` | Higher class → Higher fare |
-
----
-
-### 📌 Correlation Heatmap
-```python
-plt.figure(figsize=(10,6))
-sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
-plt.title("Correlation Heatmap")
+Through this analysis, we gained practical experience in data cleaning, visualization, and interpreting data patterns to extract meaningful insights.
